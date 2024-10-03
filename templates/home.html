@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <main>
+        <div class="homePage">
+            <div class="cover">
+                {% for post in books %}
+                    <div class="img">
+                        <a href="{% url 'bookpage' post.id %}"><img src="{{post.img.url}}" alt=""></a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

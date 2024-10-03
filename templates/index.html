@@ -1,0 +1,30 @@
+{% extends 'baseforindex.html' %}
+{% block main %}
+    <main>
+        <div class="signPage">
+            <div class="formBlock">
+                <div class="formClass">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <span>
+                            <button class="btn"><i class="bi bi-arrow-right-circle-fill"></i> Daxil ol</button>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-info-circle-fill"></i> Məlumat</button>
+                        </span>
+                    </form>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                {% for post in info %}
+                                    <p>{{post.txt|safe}}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
