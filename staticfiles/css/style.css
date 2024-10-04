@@ -122,4 +122,28 @@ body main .signPage .formBlock .formClass form .btn {
 body main .signPage .formBlock .formClass form span {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 800px) {
+  body header {
+    margin-bottom: 5vw;
+  }
+  body header span .btn {
+    font-size: 5vw;
+  }
+  body main .signPage .formBlock {
+    width: 100%;
+  }
+  body main .signPage .formBlock .formClass {
+    width: 90%;
+  }
+  body main .signPage .formBlock .formClass form {
+    font-size: 5vw;
+  }
+  body main .homePage .cover .img {
+    width: 80%;
+  }
+  body main .homePage .cover .img a img {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

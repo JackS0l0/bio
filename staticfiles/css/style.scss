@@ -127,3 +127,40 @@ body{
         }
     }
 }
+@media only screen and (max-width:800px) {
+    body{
+        header{
+            span{
+                .btn{
+                    font-size: 5vw;
+                }
+            }
+            margin-bottom: 5vw;
+        }
+        main{
+            .signPage{
+                .formBlock{
+                    width: 100%;
+                    .formClass{
+                        width: 90%;
+                        form{
+                            font-size: 5vw;
+                        }
+                    }
+                }
+            }
+            .homePage{
+                .cover{
+                    .img{
+                        width: 80%;
+                        a{
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
