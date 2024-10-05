@@ -625,12 +625,6 @@ See https://github.com/adobe-type-tools/cmap-resources
     hammer.on('doubletap', function() {
         blockContent(); // Заменяем весь контент
     });
-
-    // Обрабатываем обычное касание как потенциальную попытку сделать скриншот
-    document.body.addEventListener('touchstart', function() {
-        blockContent(); // Заменяем весь контент
-    });
-
     // Отключаем контекстное меню (щелчок правой кнопкой)
     document.oncontextmenu = new Function("return false;");
     // Отключаем выделение текста
