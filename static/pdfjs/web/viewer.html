@@ -601,40 +601,49 @@ See https://github.com/adobe-type-tools/cmap-resources
     <!-- protect -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script>
-      // Функция для замены всего содержимого страницы
-      function blockContent() {
-          document.body.innerHTML = 'Копирование запрещено, обновите страницу и попробуйте снова. Все права защищены.';
-      }
-  
-      // Версия для ПК: Обнаружение нажатия клавиши Print Screen
-      window.addEventListener("keyup", function(e) {
-          if (e.keyCode === 44) { // Код клавиши Print Screen
-              blockContent(); // Заменяем весь контент
-          }
-      });
-  
-      // Версия для мобильных устройств: Используем Hammer.js для жестов
-      var hammer = new Hammer(document.body);
-  
-      // Обрабатываем долгий тап (long press) как попытку скриншота
-      hammer.on('press', function() {
-          blockContent(); // Заменяем весь контент
-      });
-  
-      // Обрабатываем двойное касание (double-tap)
-      hammer.on('doubletap', function() {
-          blockContent(); // Заменяем весь контент
-      });
-  
-      // Обрабатываем обычное касание как потенциальную попытку сделать скриншот
-     
-  
-      // Отключаем контекстное меню (щелчок правой кнопкой)
-      document.oncontextmenu = new Function("return false;");
-      // Отключаем выделение текста
-      document.onselectstart = new Function("return false;");
-  </script>
-  
+        // Функция для замены всего содержимого страницы
+        function blockContent() {
+            document.body.innerHTML = 'Копирование запрещено, обновите страницу и попробуйте снова. Все права защищены.';
+        }
+
+        // Версия для ПК: Обнаружение нажатия клавиши Print Screen
+        window.addEventListener("keyup", function(e) {
+            if (e.keyCode === 44) { // Код клавиши Print Screen
+                blockContent(); // Заменяем весь контент
+            }
+        });
+
+        // Версия для мобильных устройств: Используем Hammer.js для жестов
+        var hammer = new Hammer(document.body);
+
+        // Обрабатываем долгий тап (long press) как попытку скриншота
+        hammer.on('press', function() {
+            blockContent(); // Заменяем весь контент
+        });
+
+        // Обрабатываем двойное касание (double-tap)
+        hammer.on('doubletap', function() {
+            blockContent(); // Заменяем весь контент
+        });
+        // Отключаем контекстное меню (щелчок правой кнопкой)
+        document.oncontextmenu = new Function("return false;");
+        // Отключаем выделение текста
+        document.onselectstart = new Function("return false;");
+
+        // Отслеживание видимости страницы (работает для боковых кнопок на мобильных устройствах)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                blockContent(); // Заменяем весь контент при переходе страницы в фон
+            }
+        });
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.body.style.filter = 'blur(10px)'; // Размываем контент
+            } else {
+                document.body.style.filter = 'none'; // Возвращаем нормальный вид
+            }
+        });
+    </script>
     <!-- protect -->
   </body>
 </html>
