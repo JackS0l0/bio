@@ -46,6 +46,11 @@ body{
     main{
         .homePage{
             .postClass{
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
                 user-select: none;
                 .watermark {
                     position: absolute;
@@ -120,6 +125,43 @@ body{
                         span{
                             display: flex;
                             justify-content: space-between;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width:800px) {
+    body{
+        header{
+            span{
+                .btn{
+                    font-size: 5vw;
+                }
+            }
+            margin-bottom: 5vw;
+        }
+        main{
+            .signPage{
+                .formBlock{
+                    width: 100%;
+                    .formClass{
+                        width: 90%;
+                        form{
+                            font-size: 5vw;
+                        }
+                    }
+                }
+            }
+            .homePage{
+                .cover{
+                    .img{
+                        width: 80%;
+                        a{
+                            img{
+                                width: 100%;
+                            }
                         }
                     }
                 }

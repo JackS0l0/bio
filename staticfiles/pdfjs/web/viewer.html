@@ -632,6 +632,18 @@ See https://github.com/adobe-type-tools/cmap-resources
                 postElement.textContent = 'Копирование запрещено, обновите страницу и попробуйте снова. Все права защищены.';
             });
         </script>
+        <script type="text/javascript">
+            document.oncontextmenu =new Function("return false;")
+            document.onselectstart =new Function("return false;")
+        </script>
+        <script>
+          document.addEventListener("keydown", function(event) {
+              if (event.key === "VolumeDown") {
+                  event.preventDefault();
+                  alert("Изменение громкости отключено.");
+              }
+          });
+        </script>
     <!-- protect -->
   </body>
 </html>
