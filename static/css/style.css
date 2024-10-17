@@ -44,10 +44,24 @@ body header {
 body header span .btn {
   font-size: 2vw;
 }
+body main .homePage .createPage {
+  display: flex;
+  justify-content: center;
+}
+body main .homePage .createPage form {
+  padding: 2vw;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 body main .homePage .postClass {
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 body main .homePage .postClass .watermark {
   position: absolute;
@@ -122,4 +136,28 @@ body main .signPage .formBlock .formClass form .btn {
 body main .signPage .formBlock .formClass form span {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 800px) {
+  body header {
+    margin-bottom: 5vw;
+  }
+  body header span .btn {
+    font-size: 5vw;
+  }
+  body main .signPage .formBlock {
+    width: 100%;
+  }
+  body main .signPage .formBlock .formClass {
+    width: 90%;
+  }
+  body main .signPage .formBlock .formClass form {
+    font-size: 5vw;
+  }
+  body main .homePage .cover .img {
+    width: 80%;
+  }
+  body main .homePage .cover .img a img {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

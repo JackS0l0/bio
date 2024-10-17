@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <main>
+        <div class="homePage">
+            <div class="createPage">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit">Hesab yarat</button>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
-from .froms import UserLoginForm
+from .froms import UserLoginForm,CreateUser
 from django.contrib import auth
 from django.views.generic import View
 from main.models import İnfo
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 def index(request):
     if request.method == "POST":
         form = UserLoginForm(data=request.POST)
@@ -26,3 +28,19 @@ class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('/')
+@login_required
+def signup(request):
+    if request.method == 'POST':
+        form = CreateUser(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new user
+            messages.success(request, 'İstifadəçi yaradıldı')  # Add success message
+            form = CreateUser()  # Reset the form for further entries
+    else:
+        form = CreateUser()
+
+    data = {
+        'title': 'Biologiya - Quliyeva Suqra - Signup',
+        'form': form,
+    }
+    return render(request, 'create.html', data)

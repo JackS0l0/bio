@@ -4,6 +4,9 @@
         <button onclick="history.back()" class="btn"><i class="bi bi-arrow-left-square-fill"></i></button>
     </span>
     <span>
+        {% if user.is_staff or user.is_superuser %}
+            <a href="{% url 'signup' %}" class="btn">Hesab yarat</a>
+        {% endif %}
         <a href="{% url 'logout' %}" class="btn">Çıxış</a>
     </span>
 </header>

@@ -44,10 +44,24 @@ body header {
 body header span .btn {
   font-size: 2vw;
 }
+body main .homePage .createPage {
+  display: flex;
+  justify-content: center;
+}
+body main .homePage .createPage form {
+  padding: 2vw;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 body main .homePage .postClass {
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 body main .homePage .postClass .watermark {
   position: absolute;

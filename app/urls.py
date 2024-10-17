@@ -13,4 +13,5 @@ urlpatterns = [
     path('home/',mainviews.home,name='homepage'),
     path('book/<int:pk>/',mainviews.DetailBook.as_view(), name='bookpage'),
     path('exit/',usersviews.LogoutView.as_view(), name='logout'),
+    path('sign/',usersviews.signup,name='signup'),
 ]+ static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
