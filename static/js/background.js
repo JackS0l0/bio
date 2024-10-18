@@ -1,16 +1,9 @@
-chrome.tabs.onActivated.addListener((activeInfo) => {
-    chrome.tabs.get(activeInfo.tabId, (tab) => {
-        if (tab.audible === false) {
-            // Burada ekran görüntüsü alınma ehtimalına qarşı tədbir görmək olar.
-            chrome.scripting.executeScript({
-                target: { tabId: activeInfo.tabId },
-                function: hideContent
-            });
-        }
-    });
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status === 'complete') {
+        // Ekran görüntüsü alındığında vebsaytın içində scripti işə salın
+        chrome.scripting.executeScript({
+            target: { tabId: tabId },
+            files: ['content.js']
+        });
+    }
 });
-
-function hideContent() {
-    document.body.style.display = 'none';
-    alert("Screenshot attempt detected!");
-}

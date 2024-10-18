@@ -2,27 +2,22 @@
     "manifest_version": 3,
     "name": "Screenshot Detector",
     "version": "1.0",
-    "description": "Detects screenshot attempts and hides content.",
     "permissions": [
-        "activeTab",
-        "tabs",
-        "scripting"
+      "tabs",
+      "activeTab",
+      "scripting"
     ],
     "background": {
-        "service_worker": "background.js"
-    },
-    "host_permissions": [
-        "<all_urls>"
-    ],
-    "icons": {
-        "48": "icon.png"
+      "service_worker": "background.js"
     },
     "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "icon.png",
-            "48": "icon.png",
-            "128": "icon.png"
-        }
-    }
-}
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
